@@ -1,0 +1,88 @@
+apply plugin: 'c'
+apply plugin: 'cpp'
+
+binaries.all {
+    cppCompiler.args "-std=c++11"
+}
+
+libraries {
+    catcha {}
+    sqlite3 {}
+    sqlitecpp {}
+    rxcpp {}
+    muffin {}
+}
+
+executables {
+    specs {}
+}
+
+sources {
+    catcha {
+        cpp {
+            exportedHeaders {
+                srcDir "lib/Catch/single_include"
+                include "catch.hpp"
+            }
+        }
+    }
+    sqlite3 {
+        c {
+            source {
+                srcDir "lib/SQLiteCpp/sqlite3"
+                include "sqlite3.c"
+            }
+            exportedHeaders {
+                srcDir "lib/SQLiteCpp/sqlite3"
+                include "sqlite3.h"
+            }
+        }
+    }
+    sqlitecpp {
+        cpp {
+            lib libraries.sqlite3
+            source {
+                srcDir "lib/SQLiteCpp/src"
+                include "**/*.cpp"
+            }
+            exportedHeaders {
+                srcDir "lib/SQLiteCpp/include"
+                include "**/*.h"
+            }
+        }
+    }
+    rxcpp {
+        cpp {
+            exportedHeaders {
+                srcDir "lib/RxCpp/Rx/v2/src"
+                include "**/*.hpp"
+            }
+        }
+    }
+    muffin {
+        cpp {
+            lib libraries.rxcpp
+            lib libraries.sqlitecpp
+            source {
+                srcDir "src/source"
+                include "**/*.cpp"
+            }
+            exportedHeaders {
+                srcDir "src/include"
+                include "**/*.hpp"
+            }
+        }
+    }
+    specs {
+        cpp {
+            lib libraries.rxcpp
+            lib libraries.sqlitecpp
+            lib libraries.muffin
+            lib libraries.catcha
+            source {
+                srcDir "test/source"
+                include "**/*.cpp"
+            }
+        }
+    }
+}

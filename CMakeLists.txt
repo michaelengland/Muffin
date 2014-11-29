@@ -7,10 +7,9 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 # ------------- FOLDERS -------------
 
 set(LIB_FOLDER "${PROJECT_SOURCE_DIR}/lib")
-set(INCLUDE_TOP_LEVEL_FOLDER "${PROJECT_SOURCE_DIR}/include")
-set(INCLUDE_FOLDER "${INCLUDE_TOP_LEVEL_FOLDER}/Muffin")
-set(SOURCE_FOLDER "${PROJECT_SOURCE_DIR}/src")
-set(TEST_FOLDER "${PROJECT_SOURCE_DIR}/test")
+set(INCLUDE_FOLDER "${PROJECT_SOURCE_DIR}/src/include")
+set(SOURCE_FOLDER "${PROJECT_SOURCE_DIR}/src/source")
+set(TEST_FOLDER "${PROJECT_SOURCE_DIR}/test/source")
 
 # ------------ LIBRARIES ------------
 
@@ -26,11 +25,11 @@ add_subdirectory(${LIB_FOLDER}/SQLiteCpp)
 # ------------- SOURCE -------------
 
 set(SOURCE_FILES
-    ${INCLUDE_FOLDER}/Simple.hpp
-    ${SOURCE_FOLDER}/Simple.cpp
+    ${INCLUDE_FOLDER}/muffin/api/Simple.hpp
+    ${SOURCE_FOLDER}/muffin/Simple.cpp
 )
 
-include_directories("${PROJECT_SOURCE_DIR}/include")
+include_directories("${INCLUDE_FOLDER}")
 add_library(Muffin ${SOURCE_FILES})
 target_link_libraries(Muffin SQLiteCpp)
 
