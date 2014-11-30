@@ -26,5 +26,5 @@ some changes or improvements or alternatives.
 Some things that will increase the chance that your pull request is accepted:
 
 * Write tests.
-* Follow the [style guide][http://geosoft.no/development/cppstyle.html].
+* Follow the [style guide](http://geosoft.no/development/cppstyle.html).
 * Write a [good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
