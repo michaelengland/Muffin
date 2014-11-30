@@ -2,9 +2,9 @@
 
 #include <rxcpp/rx.hpp>
 
-namespace Muffin
+namespace muffin
 {
-    namespace Api
+    namespace api
     {
         class Simple
         {
