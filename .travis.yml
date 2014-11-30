@@ -1,12 +1,8 @@
-language: cpp
+# This sets OS to Mac for now
+language: objective-c
 
-compiler:
-  - clang
-  - gcc
-
-env:
-  - BUILD_TYPE=Debug
-  - BUILD_TYPE=Release
+before_install:
+  - git submodule update --init --recursive
 
 script:
-  - make clean build
+  - gradle runSpecs --debug
