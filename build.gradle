@@ -1,7 +1,3 @@
-task wrapper(type: Wrapper) {
-    gradleVersion = '2.1'
-}
-
 apply plugin: 'c'
 apply plugin: 'cpp'
 
@@ -89,4 +85,9 @@ sources {
             }
         }
     }
+}
+
+task runSpecs(type: Exec, dependsOn: ":installSpecsExecutable") {
+    workingDir "build/install/specsExecutable"
+    executable "./specs"
 }
