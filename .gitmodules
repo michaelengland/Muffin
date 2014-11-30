@@ -1,9 +1,9 @@
 [submodule "lib/Catch"]
 	path = lib/Catch
-	url = git@github.com:philsquared/Catch.git
+	url = https://github.com/philsquared/Catch.git
 [submodule "lib/RxCpp"]
 	path = lib/RxCpp
-	url = git@github.com:Reactive-Extensions/RxCpp.git
+	url = https://github.com/Reactive-Extensions/RxCpp.git
 [submodule "lib/SQLiteCpp"]
 	path = lib/SQLiteCpp
-	url = git@github.com:SRombauts/SQLiteCpp.git
+	url = https://github.com/SRombauts/SQLiteCpp.git
