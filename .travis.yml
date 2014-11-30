@@ -2,7 +2,7 @@
 language: objective-c
 
 before_install:
-  - git submodule update --init --recursive
+  - ./setup-submodules
 
 script:
-  - gradle runSpecs --debug
+  - ./run-tests
